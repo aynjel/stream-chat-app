@@ -1,0 +1,41 @@
+<form [formGroup]="registerForm" class="form" (submit)="onSubmit()">
+  <div class="form-field">
+    <label>Display Name</label>
+    <input
+      type="text"
+      matInput
+      formControlName="displayName"
+      placeholder="Display Name"
+    />
+    <p *ngIf="registerForm.controls['displayName'].hasError('minlength')">
+      Name is too short
+    </p>
+  </div>
+  <div class="form-field">
+    <label>Email</label>
+    <input type="email" matInput formControlName="email" placeholder="email" />
+    <p *ngIf="registerForm.controls['email'].hasError('email')">
+      Enter a valid email
+    </p>
+  </div>
+  <div class="form-field">
+    <label>Password</label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+      required
+      placeholder="Password"
+    />
+    <p *ngIf="registerForm.controls['password'].hasError('minlength')">
+      Password is too short
+    </p>
+  </div>
+
+  <button mat-raised-button color="accent" [disabled]="registerForm.invalid">
+    Create Account
+  </button>
+  <button (click)="navigate('/login')" mat-raised-button color="primary">
+    Already have an account? Go to signin
+  </button>
+</form>

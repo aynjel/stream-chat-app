@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "get-stream-io-chat-app": {
+      "hosting": {
+        "stream-chat-app": [
+          "get-stream-io-chat-app"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "get-stream-io-chat-app"
+  }
+}
